@@ -1,7 +1,7 @@
 {
   "name": "first-api",
   "version": "1.0.0",
-  "description": "node express mongoose api",
+  "description": "node express mongoose first api",
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon server.js"

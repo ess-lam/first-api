@@ -2,9 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const messageSchema = new Schema({
+  messenger: String,
   text: String,
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+  responses: { 
+    type: [mongoose.ObjectId], 
+    ref: 'Message',
+  },
 },{ 
   timestamps: true 
 })
@@ -14,8 +17,10 @@ const messageSchema = new Schema({
 //   next();
 // })
 
-// messageSchema.methods.getRecentMessages = function (nbOfMessages) {
+// messageSchema.virtual('createdAtDate').get(function() {
+//   const creationdate = new Date(this.createdAt)
+//   return creationdate;
+// })
 
-// }
 
 module.exports = mongoose.model('Message', messageSchema)
