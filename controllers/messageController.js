@@ -56,7 +56,8 @@ exports.respond = async (req, res, next) => {
     const msg = await Message.findById(req.body.msgId).populate("responses");
     msg.responses.push(req.body.resId);
     await msg.save();
-    res.status(200).send(msg)  
+    res.status(200).send(msg)
+    
   } catch (error) {
     res.status(400).json({ message: error.message })
   }
